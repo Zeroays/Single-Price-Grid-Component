@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Karla;
+}
+
+@font-face {
+  font-family: Karla;
+  src: url("https://fonts.google.com/specimen/Karla");
+}
+
+:root {
+  --cyan: hsl(179, 62%, 43%);
+  --bright-yellow: hsl(71, 73%, 54%);
+  --light-gray: hsl(204, 43%, 93%);
+  --grayish-blue: hsl(218, 22%, 67%);
+  --card-border-radius: 10px;
+}
+
+body {
+  background-color: var(--light-gray);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.price-grid-card {
+  border-radius: var(--card-border-radius);
+  box-shadow: rgb(163, 163, 163) 0 10px 50px;
+  display: grid;
+  grid-template-areas:
+    "excerpt excerpt"
+    "subscription features";
+  max-width: 660px;
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+}
+
+.price-grid__excerpt {
+  background-color: white;
+  padding: 40px;
+  grid-area: excerpt;
+}
+
+.excerpt__title {
+  margin-bottom: 20px;
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.excerpt__subtitle {
+  margin-bottom: 15px;
+  color: var(--bright-yellow);
+  font-size: 18px;
+}
+
+.excerpt__description {
+  color: var(--grayish-blue);
+  line-height: 25px;
+}
+
+.price-grid__features,
+.price-grid__subscription {
+  min-height: 275px;
+}
+
+.price-grid__subscription {
+  position: relative;
+  background-color: var(--cyan);
+  color: white;
+  padding: 40px;
+  grid-area: subscription;
+}
+
+.subscription__title {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.subscription__price {
+  margin-bottom: 15px;
+  display: flex;
+}
+
+.price__amount {
+  font-size: 28px;
+}
+
+.price__billing {
+  padding-left: 15px;
+  transform: translateY(7.5px);
+  color: hsla(203, 44%, 93%, 0.808);
+  font-weight: 400;
+}
+
+.subscription__subtitle {
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.subscription__button {
+  width: 100%;
+  height: 50px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: hsl(179, 62%, 32%) 0 10px 30px;
+  background-color: var(--bright-yellow);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.subscription__button:hover {
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+.price-grid__features {
+  grid-area: features;
+  color: white;
+  background-color: hsla(179, 62%, 43%, 0.514);
+  padding: 40px;
+}
+
+.features__title {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.features__description {
+  line-height: 22px;
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    height: 100%;
+  }
+  .price-grid-card {
+    grid-template-areas:
+      "excerpt"
+      "subscription"
+      "features";
+    grid-template-columns: 1fr;
+  }
+}
